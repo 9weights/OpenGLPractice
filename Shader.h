@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 class Shader
 {
 public:
@@ -48,8 +49,8 @@ public:
         glCompileShader(vertexShaderID);
         checkCompileStatus(vertexShaderID, "vertex");
         unsigned int fragmentShaderID{};
-        glCreateShader(fragmentShaderID);
-        glShaderSource(fragmentShaderID, 1, &vShaderCode, NULL);
+        fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(fragmentShaderID, 1, &fShaderCode, NULL);
         glCompileShader(fragmentShaderID);
         checkCompileStatus(fragmentShaderID, "fragment");
 
@@ -84,10 +85,6 @@ public:
             glGetProgramInfoLog(programID, 512, NULL, infoLog);
             std::cout << type << " linking failed \n" << infoLog << "\n";
         }
-    }
-    void uniformstuff()
-    {
-
     }
 
 
