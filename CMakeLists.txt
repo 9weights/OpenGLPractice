@@ -14,10 +14,12 @@ add_subdirectory(dependencies/glfw)
 # GLM
 add_subdirectory(dependencies/glm)
 
-# Exe
+# First try
 add_executable(first first.cpp)
 target_link_libraries(first PUBLIC glad glfw)
 target_include_directories(first PUBLIC . dependencies/)
+
+# Tex fun
 add_executable(textureTest textureTry.cpp)
 target_link_libraries(textureTest PUBLIC glad glfw glm)
 target_include_directories(textureTest PUBLIC . dependencies/)
